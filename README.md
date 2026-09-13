@@ -13,6 +13,20 @@
 - 在关键写入动作前保留人工确认节点
 - 保存输入、输出、审批与审计记录
 
+## 界面预览
+
+### 月度核算工作台
+
+![月度核算工作台](docs/images/home.png)
+
+### 工资处理流程
+
+![工资处理流程](docs/images/workflow.png)
+
+### 工资核算 Agent
+
+![工资核算 Agent](docs/images/agent-assistant.png)
+
 ## 技术栈
 
 - 后端：Python、FastAPI、Microsoft Excel COM（pywin32）
@@ -74,4 +88,3 @@ API Key 不写入代码或配置文件，而是保存在当前 Windows 用户的
 ```powershell
 python -m pytest -q
 ```
-
