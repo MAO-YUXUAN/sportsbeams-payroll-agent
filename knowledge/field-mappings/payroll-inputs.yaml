@@ -1,0 +1,104 @@
+version: 1
+expense_month: YYYY-MM
+
+attendance:
+  file_category: attendance_summary
+  sheet: Sheet2
+  employee_header_row: 4
+  date_column: B
+  first_employee_column: 4
+  statuses: [出差, 年假, 调休, 事假, 病假, 旷工, 迟到, 早退]
+
+meal_allowance:
+  file_category: meal_allowance
+  sheet: "{month}月"
+  start_row: 3
+  daily_rate: 15
+  deductible_statuses: [出差, 年假, 事假, 病假, 旷工]
+  employees:
+    - {department: 总办, employee_name: 舒凯彪}
+    - {department: 销售行政部, employee_name: 周丹妮}
+    - {department: "", employee_name: 李婷婷}
+    - {department: 销售部, employee_name: 虞铭东}
+    - {department: "", employee_name: 周琴}
+    - {department: "", employee_name: 王兵强}
+    - {department: 工程技术部, employee_name: 郑科达}
+    - {department: "", employee_name: 刘钰}
+    - {department: "", employee_name: 杨光}
+    - {department: "", employee_name: 马陆煜}
+    - {department: 市场部, employee_name: 徐超导}
+  columns:
+    employee_name: C
+    attendance_meal: D
+    absence_deduction: E
+    overtime_allowance: F
+    hospitality_allowance: G
+    meal_total: H
+
+yicai_payroll:
+  file_category: yicai_payroll
+  sheet: "{month}月派遣"
+  start_row: 4
+  columns:
+    employee_name: C
+    gross_pay: P
+    personal_social_housing: AE
+    income_tax: AI
+    net_pay: AJ
+
+yarun_payroll:
+  file_category: yarun_payroll
+  sheet: "{month}月"
+  start_row: 5
+  columns:
+    employee_name: B
+    employee_id: C
+    gross_pay: D
+    personal_social_housing: I
+    income_tax: K
+    net_pay: L
+    service_fee: M
+
+internal_social_insurance:
+  file_category: social_detail
+  sheet: 赛倍明
+  start_row: 4
+  columns:
+    employee_name: C
+    social_base: E
+    pension_company: F
+    medical_company: G
+    unemployment_company: H
+    injury_company: I
+    supplemental_medical_company: J
+    pension_employee: K
+    medical_employee: L
+    unemployment_employee: M
+    social_total: N
+
+housing_fund:
+  file_category: housing_fund_detail
+  sheet: 赛倍明
+  start_row: 4
+  columns:
+    employee_name: C
+    housing_base: E
+    housing_company: F
+    housing_employee: G
+    housing_total: H
+
+main_payroll:
+  sheet: "{month}月"
+  employee_rows: [8, 38]
+  total_row: 38
+  employee_name_column: C
+  aliases:
+    李伟: 李伟1
+    杨悦: 杨悦1
+    刘同涛: 刘同涛1
+    孙晓霞: 孙晓霞1
+  columns:
+    gross_pay: P
+    personal_social_housing: AE
+    income_tax: AI
+    net_pay: AJ

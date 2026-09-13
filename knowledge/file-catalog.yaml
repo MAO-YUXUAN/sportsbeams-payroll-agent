@@ -1,0 +1,93 @@
+version: 1
+categories:
+  - id: payroll_workbook
+    label: 月度工资核算表
+    required: true
+    destination: source/payroll
+    patterns: ["1-4、6、9.*工资表.xls", "1-4、6、9.*工资表.xlsx", "*月份赛倍明工资表.xls", "*月份赛倍明工资表.xlsx"]
+    required_sheets: [各部门统计表]
+
+  - id: yarun_settlement
+    label: 亚润社保公积金结算表
+    required: false
+    destination: source/vendors/yarun
+    patterns: ["5.*亚润*结算表*.xlsx", "*亚润*结算表*.xlsx"]
+    month_sheet: "{expense_yyyymm}"
+
+  - id: yicai_dispatch_settlement
+    label: 易才派遣社保账单
+    required: false
+    destination: source/vendors/yicai
+    patterns: ["8.*派遣*社保账单*.xlsx", "*【派遣】*社保账单*.xlsx", "*派遣*社保账单*.xlsx"]
+    required_sheets: ["1"]
+    month_check:
+      sheet: "1"
+      column: H
+      start_row: 8
+
+  - id: payment_request_template
+    label: 社保公积金付款单模板
+    required: false
+    destination: source/templates/payment
+    patterns: ["7.11.*付款单*.xls", "*社保公积金*付款单*.xls", "7.11.*付款单*.xlsx", "*社保公积金*付款单*.xlsx"]
+    required_sheets: [亚润人力社保, 易才派遣]
+
+  - id: yicai_social_statement
+    label: 易才社保账单（非派遣专表）
+    required: false
+    destination: source/supporting/social
+    patterns: ["10.*易才*社保账单*.xlsx"]
+
+  - id: attendance_summary
+    label: 考勤月度汇总
+    required: false
+    destination: source/supporting/attendance
+    patterns: ["12.*考勤*月度汇总*.xlsx", "*考勤*月度汇总*.xlsx", "*月度*考勤*汇总*.xlsx"]
+
+  - id: meal_allowance
+    label: 餐费表
+    required: false
+    destination: source/supporting/meal
+    patterns: ["14.*餐费*.xlsx"]
+
+  - id: yicai_payroll
+    label: 易才派遣薪资表（系统生成）
+    required: false
+    destination: source/supporting/payroll
+    patterns: ["15.*易才*工资*派遣*.xlsx", "*易才*工资*派遣*.xlsx", "*易才*派遣*工资*.xlsx", "*易才*派遣*薪资*.xlsx"]
+
+  - id: yarun_payroll
+    label: 亚润薪资表（系统生成）
+    required: false
+    destination: source/supporting/payroll
+    patterns: ["16.*亚润*薪资表*.xlsx", "*亚润*薪资表*.xlsx", "*亚润*薪资明细*.xlsx"]
+
+  - id: payroll_bill
+    label: 易才回传工资账单
+    required: false
+    destination: source/supporting/payroll
+    patterns: ["17.*工资账单*.xlsx", "*易才*工资账单*.xlsx", "*派遣*工资账单*.xlsx"]
+
+  - id: payroll_export
+    label: 亚润回传工资表
+    required: false
+    destination: source/supporting/payroll
+    patterns: ["18.*工资表*.xlsx", "*亚润*回传*工资表*.xlsx", "*亚润*工资*回传*.xlsx"]
+
+  - id: social_detail
+    label: 社保明细
+    required: false
+    destination: source/supporting/social
+    patterns: ["19.*社保明细*.xlsx", "*社保明细*.xlsx"]
+
+  - id: tax_payment
+    label: 个税付款单
+    required: false
+    destination: source/supporting/tax
+    patterns: ["20.*个税付款单*.xlsx", "*个税付款单*.xlsx", "*个税付款资料*.xlsx"]
+
+  - id: housing_fund_detail
+    label: 公积金明细
+    required: false
+    destination: source/supporting/housing
+    patterns: ["21.*公积金*.xlsx", "*公积金明细*.xlsx"]

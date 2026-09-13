@@ -1,0 +1,54 @@
+id: yarun
+display_name: 亚润人力
+vendor_name: 北京亚润人力资源有限公司
+file_patterns:
+  - "*亚润*结算表*.xlsx"
+
+settlement:
+  sheet_name: "{expense_yyyymm}"
+  start_row: 12
+  blank_row_limit: 2
+  excluded_names: [合计, 总计, 小计]
+  columns:
+    employee_name: C
+    employee_id: D
+    expense_month: F
+    pension_company: I
+    medical_company: J
+    unemployment_company: K
+    housing_fund_company: O
+    company_subtotal: P
+    pension_employee: Q
+    medical_employee: R
+    unemployment_employee: S
+    housing_fund_employee: T
+    employee_subtotal: U
+    service_fee: V
+    row_total: W
+
+payroll_summary:
+  sheet_name: 各部门统计表
+  start_row: 19
+  end_row: 22
+  employee_name_column: G
+  expense_month_column: H
+  match_by: employee_name
+  field_columns:
+    company_subtotal: I
+    employee_subtotal: J
+    service_fee: K
+
+reconciliation_fields:
+  - company_subtotal
+  - employee_subtotal
+  - service_fee
+
+payment_request:
+  sheet_name: 亚润人力社保
+  cells:
+    payment_date: C4
+    vendor_name: C6
+    payment_amount: [C8, D14]
+    amount_uppercase: [C9, D15]
+    purpose: C13
+  purpose_template: "代缴赛倍明{year}年{month}月社保公积金费用，含服务费"

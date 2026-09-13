@@ -1,0 +1,21 @@
+provider: deepseek
+base_url: https://api.deepseek.com
+api_key_env: DEEPSEEK_API_KEY
+default_model: deepseek-v4-flash
+complex_model: deepseek-v4-pro
+
+limits:
+  max_requests_per_run: 30
+  max_input_tokens: 12000
+  max_output_tokens: 1600
+  monthly_budget_cny: 20.00
+
+# Conservative peak prices converted at 7.5 CNY/USD. Review against the
+# official DeepSeek pricing page before production use.
+pricing_cny_per_million_tokens:
+  deepseek-v4-flash:
+    input: 3.30
+    output: 9.90
+  deepseek-v4-pro:
+    input: 9.90
+    output: 29.70

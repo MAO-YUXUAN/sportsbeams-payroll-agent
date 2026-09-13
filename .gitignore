@@ -1,0 +1,37 @@
+# Payroll inputs, outputs, audit logs, and local credentials/state
+data/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Build and packaging output
+build/
+dist/
+*.egg-info/
+packaging/output/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Microsoft Office temporary/lock files
+~$*.xls*
+

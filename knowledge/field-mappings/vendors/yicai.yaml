@@ -1,0 +1,56 @@
+id: yicai
+display_name: 易才派遣
+vendor_name: 上海智联易才人力资源顾问有限公司
+file_patterns:
+  - "8.*派遣*社保账单*.xlsx"
+  - "*【派遣】*社保账单*.xlsx"
+
+settlement:
+  sheet_name: "1"
+  start_row: 8
+  blank_row_limit: 2
+  excluded_names: [合计, 总计, 小计]
+  columns:
+    employee_name: D
+    employee_id: F
+    expense_month: H
+    pension_company: P
+    pension_employee: S
+    medical_company: X
+    medical_employee: AA
+    unemployment_company: AF
+    unemployment_employee: AI
+    housing_fund_company: BT
+    housing_fund_employee: BW
+    company_subtotal: CK
+    employee_subtotal: CL
+  sum_columns:
+    service_fee: [I, J]
+    row_total: [CK, CL, I, J]
+
+payroll_summary:
+  sheet_name: 各部门统计表
+  start_row: 27
+  end_row: 34
+  employee_name_column: G
+  expense_month_column: H
+  match_by: employee_name
+  field_columns:
+    company_subtotal: I
+    employee_subtotal: J
+    service_fee: K
+
+reconciliation_fields:
+  - company_subtotal
+  - employee_subtotal
+  - service_fee
+
+payment_request:
+  sheet_name: 易才派遣
+  cells:
+    payment_date: C4
+    vendor_name: C6
+    payment_amount: [C8, D14]
+    amount_uppercase: [C9, D15]
+    purpose: C13
+  purpose_template: "代缴赛倍明{year}年{month}月社保公积金费用（派遣），含服务费"
